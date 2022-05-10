@@ -9,6 +9,9 @@ export default {
   data: () => ({
     isAccept: false,
   }),
+  mounted(){
+    this.cwcIsUserAccept()
+  },
   methods: {
     cwcIsUserAccept() {
       const response = window.cwcIsUserAccept('analytics')
