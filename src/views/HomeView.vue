@@ -27,7 +27,7 @@ export default {
   },
 
   data: () => ({
-    url: "https://graph.facebook.com/v13.0/1752077728363529/feed?fields=full_picture%2Cmessage%2Cpermalink_url&access_token=EAAHu6zfIL28BAFBMcozYFLmFLYJOS40kH1fwFOOSyjyMvh5bBe4oNWcg1ZCZBZAIDx1GvcGCfzUWl8J9qoAPSvEbtZA81bqnGNJwCZCpNnmcRvPcSD6o63ZACP4HL9kpDLGNy2NLwzR5kyhjwIFsE3ZCzYzAppKuQbjFiosRqOWkZBisRGnwXZAPjUubTx2KyXQ7ZBn7EJZAi2Ncatpqb4bGsFz",
+    url: "https://graph.facebook.com/v13.0/1752077728363529/feed?fields=full_picture%2Cmessage%2Cpermalink_url&access_token=EAAHu6zfIL28BALJnG2PkEVTuZAF8EMSclPj3mDtoIiZAQb6xiqxgXOPmVsyLGdD0m9I961K7rZA66HzZBDZCg2lLuAZCZAEaS38TjNLoYZAplesJuEeZAZAatKk1wdwLgZAMHZCyS0FwZC1ButnWM3AmiS0GZBxtZAFlfEbzLqPdfsR8fZBnSyF1x5ytdkpjZAYkQ6jJsKCMUzEWvKArsVAZDZD",
     dataList: [],
   }),
   methods: {
