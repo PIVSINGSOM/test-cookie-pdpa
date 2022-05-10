@@ -1,15 +1,18 @@
 <template>
   <div class="home">
-    <div
+    <a
       v-for="item in dataList"
       :key="item.id"
-      style="width: 500px; height: 500px"
+      :href="item.permalink_url"
+      target="blank"
     >
-      <div>{{ item.message }}</div>
-      <div class="block-image">
-        <img :src="item.full_picture" style="width: 100%; height: 100%" />
+      <div style="width: 500px; height: 500px">
+        <div style="width: 100%">{{ item.message }}</div>
+        <div class="block-image">
+          <img :src="item.full_picture" style="width: 100%; height: 100%" />
+        </div>
       </div>
-    </div>
+    </a>
   </div>
 </template>
 
@@ -27,12 +30,15 @@ export default {
   },
 
   data: () => ({
-    url: "https://graph.facebook.com/v13.0/1752077728363529/feed?fields=full_picture%2Cmessage%2Cpermalink_url&access_token=EAAHu6zfIL28BALJnG2PkEVTuZAF8EMSclPj3mDtoIiZAQb6xiqxgXOPmVsyLGdD0m9I961K7rZA66HzZBDZCg2lLuAZCZAEaS38TjNLoYZAplesJuEeZAZAatKk1wdwLgZAMHZCyS0FwZC1ButnWM3AmiS0GZBxtZAFlfEbzLqPdfsR8fZBnSyF1x5ytdkpjZAYkQ6jJsKCMUzEWvKArsVAZDZD",
+    url:'https://graph.facebook.com/v13.0/1752077728363529/feed?fields=full_picture%2Cmessage%2Cpermalink_url&access_token=',
+    token: "EAAHu6zfIL28BALJnG2PkEVTuZAF8EMSclPj3mDtoIiZAQb6xiqxgXOPmVsyLGdD0m9I961K7rZA66HzZBDZCg2lLuAZCZAEaS38TjNLoYZAplesJuEeZAZAatKk1wdwLgZAMHZCyS0FwZC1ButnWM3AmiS0GZBxtZAFlfEbzLqPdfsR8fZBnSyF1x5ytdkpjZAYkQ6jJsKCMUzEWvKArsVAZDZD",
     dataList: [],
   }),
   methods: {
     async onGetFeeds() {
-      const response = await fetch(this.url);
+      const { token } = this.$route.query;
+      console.log(token);
+      const response = await fetch(token ? `${this.url}${token}` : `${this.url}${this.token}`);
       const data = await response.json();
       this.dataList = data.data;
     },
