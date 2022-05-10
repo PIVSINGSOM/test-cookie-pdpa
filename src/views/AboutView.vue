@@ -9,13 +9,16 @@ export default {
   data: () => ({
     isAccept: false,
   }),
-  mounted(){
-    this.cwcIsUserAccept()
+  mounted() {
+    const self = this;
+    setInterval(() => {
+      self.cwcIsUserAccept();
+    }, 100);
   },
   methods: {
     cwcIsUserAccept() {
-      const response = window.cwcIsUserAccept('analytics')
-      this.isAccept = response 
+      const response = window.cwcIsUserAccept("analytics");
+      this.isAccept = response;
     },
   },
 };
